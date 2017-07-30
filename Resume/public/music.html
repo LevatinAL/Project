@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Feng Music</title>
+        <script src='./js/feng_lib.js'></script>
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
+        <link rel="stylesheet" href="./css/header.css">
+        <link rel="stylesheet" href="./css/music.css">
+    </head>
+    <body>
+        <div class="main">
+        <div class="wripp">
+            <div class="navigation">
+                <a href="./resume.html"><img src="./image/resume.png" alt=""></a>
+                <a href="./index.html"><img src="./image/MUSIC.png" alt=""></a>
+                <a href="./album.html"><img src="./image/PHOTO.png" alt=""></a>
+                <a href="./todoList.html"><img src="./image/TODOLIST.png" alt=""></a>
+                <a href="./game.html"><img src="./image/GAME.png" alt=""></a>
+             </div>
+             <div class="music">
+                <div class="solid"></div>
+                <div class="frame">
+                    <div class="music">
+                        <div class="music-active">
+                            <img src="./image/cover_1.png" alt="" id="id-img-cover"
+                            style="animation: cover_rotation 30s linear infinite ;">
+                        </div>
+                        <ul class="music_list">
+                            <li class="music_1  " data-path='0'>
+                                南山南
+                            </li>
+                            <li class="music_1" data-path='1'>
+                                岁月神偷
+                            </li>
+                            <li class="music_1" data-path='2'>
+                                因为爱情
+                            </li>
+                        </ul>
+                        <span class="titleText">
+                            <h4 class="title_1">南山南</h4>
+                            <p class="text">马頔</p>
+                        </span>
+                    </div>
+                    <div class="bottom"></div>
+                </div>
+                <audio src="./music/1.mp3" data-id='0'></audio >
+                <div class="foot">
+                    <div class="foot-content">
+                        <div class="controller">
+                            <img id="id-button-prev"src="./image/prev.png" alt="">
+                            <img class="music-play"id="id-button-controller"src="./image/play.png" alt="">
+                            <img id="id-button-next"src="./image/next.png" alt="">
+                        </div>
+                        <div class="console">
+                            <i class="fa fa-step-backward" aria-hidden='true'>
+                            </i>
+                            <i class="fa fa-play" aria-hidden='true' id="id-i-play">
+                            </i>
+                            <i class="fa fa-step-forward" aria-hidden='true'>
+                            </i>
+                        </div>
+                        <span id="id-span-time">00:00/00:00</span>
+                        <div class="console-progress">
+                            <input type="range" value="0" id="id-input-play">
+                            <div class="progress-main">
+                                <div class="progress-play"></div>
+                                <div class="progress-play-bg"></div>
+                            </div>
+                            <div class="volume">
+                              <i class="fa fa-volume-up fa-2x" id="id-i-volume"></i>
+                              <input type="range" value="70" max='1' min="0" step="0.1"
+                              class="volume-progress">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="background"></div>
+         <!-- 引入导航 -->
+         <!-- <script src="./js/addNavigation.js" charset="utf-8"></script> -->
+         <!-- 引入播放器js -->
+         <script src = './js/music.js'></script>
+         <script src="./js/fuzhuxian.js" charset="utf-8"></script>
+
+    </body>
+</html>

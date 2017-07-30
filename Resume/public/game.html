@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Feng Game</title>
+        <link rel="stylesheet" href="./css/header.css">
+        <link rel="stylesheet" href="./css/game.css">
+        <style media="screen">
+            canvas {
+                border: 1px black solid;
+            }
+        </style>
+        <script src='./js/game/utils.js'></script>
+        <script src='./js/game/FengGame.js'></script>
+        <script src='./js/game/paddle.js'></script>
+        <script src='./js/game/ball.js'></script>
+        <script src='./js/game/block.js'></script>
+        <script src='./js/game/level.js'></script>
+    </head>
+    <body>
+        <div class="navigation">
+            <a href="./resume.html"><img src="./image/resume.png" alt=""></a>
+            <a href="./index.html"><img src="./image/MUSIC.png" alt=""></a>
+            <a href="./album.html"><img src="./image/PHOTO.png" alt=""></a>
+            <a href="./todoList.html"><img src="./image/TODOLIST.png" alt=""></a>
+            <a href="./game.html"><img src="./image/GAME.png" alt=""></a>
+        </div>
+        <div class="game">
+            <canvas id="id-canvas" width="400" height="300"></canvas>
+        </div>
+        <div class="solid"></div>
+        <div class="speed-controller info-size">
+            <div class="info-text">
+                速度调节器
+            </div>
+            <input id=id-input-speed type="range" value="30">
+            <div class="info-speed">
+                速度：30
+            </div>
+        </div>
+        <div class="info info-size">
+            1. 通过 A/D 控制单板左右移动。</br>
+            2. 按 F 发射小球。</br>
+            3. 按 P 暂停/继续游戏。</br>
+            4. 按 1、2、3、4 可以更改关卡。
+        </div>
+        <div class="background"></div>
+        <!-- <script src="./js/addNavigation.js" charset="utf-8"></script> -->
+        <script src="./js/fuzhuxian.js" charset="utf-8"></script>
+<script>
+var loadLevel = function(n) {
+    n = n - 1
+    var level = levels[n]
+    var blocks = []
+    for (var i = 0; i < level.length; i++) {
+        var p = level[i]
+        var b = Block(p)
+        blocks.push(b)
+    }
+    return blocks
+}
+
+var blocks = []
+var enableDebugMode = function(enable) {
+    if(!enable) {
+        return
+    }
+    window.paused = false
+    window.addEventListener('keydown', function(event){
+        var k = event.key
+        if (k == 'p') {
+            // 暂停功能
+            window.paused = !window.paused
+        } else if ('1234567'.includes(k)) {
+            // 为了 debug 临时加的载入关卡功能
+            blocks = loadLevel(Number(k))
+        }
+    })
+    // 控制速度
+    document.querySelector('#id-input-speed').addEventListener('input', function(event) {
+        var input = event.target
+        // log(event, input.value)
+        if (Number(input.value) == 0) {
+            window.fps = 1
+        } else {
+            window.fps = Number(input.value)
+        }
+        var speed = `速度:` + window.fps
+        console.log(speed);
+        document.querySelector('.info-speed').innerHTML = speed
+    })
+}
+
+var __GameMain = function() {
+    log('执行 main')
+    enableDebugMode(true)
+
+    var game = FengGame(30)
+
+    var paddle = Paddle()
+    var ball = Ball()
+    log('game ball', ball.image)
+
+    blocks = loadLevel(1)
+
+    var paused = false
+    game.registerAction('a', function(){
+        paddle.moveLeft()
+    })
+    game.registerAction('d', function(){
+        paddle.moveRight()
+    })
+    game.registerAction('f', function(){
+        ball.fire()
+    })
+
+    game.update = function() {
+        if (window.paused) {
+            return
+        }
+        ball.move()
+        // 判断相撞
+        if (paddle.collide(ball)) {
+            // 这里应该调用一个 ball.反弹() 来实现
+            ball.反弹()
+        }
+        // 判断 ball 和 blocks 相撞
+        for (var i = 0; i < blocks.length; i++) {
+            var block = blocks[i]
+            if (block.collide(ball)) {
+                // log('block 相撞')
+                block.kill()
+                ball.反弹()
+            }
+        }
+    }
+    game.draw = function() {
+        // draw
+        game.drawImage(paddle)
+        game.drawImage(ball)
+        // draw blocks
+        for (var i = 0; i < blocks.length; i++) {
+            var block = blocks[i]
+            if (block.alive) {
+                game.drawImage(block)
+            }
+        }
+    }
+}
+
+__GameMain()
+</script>
+    </body>
+</html>

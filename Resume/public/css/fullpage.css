@@ -1,0 +1,130 @@
+
+/* swiper*/
+.swiper-container {
+	width: 100vw;
+	height: 100vh;
+
+}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+@font-face {
+	font-family: yahz;
+	src:url(./msyh.ttf);
+}
+.nav1 {
+	background: url(../image/nav-2.jpg) no-repeat;
+	width: 100vw;
+	background-size: cover;
+	opacity: 0.8;
+	height: 100vh;
+	background-position: center;
+}
+.nav2 {
+	background: url(../image/nav-1.jpg) no-repeat;
+	width: 100vw;
+    background-size: cover;
+    opacity: 0.8;
+    height: 100vh;
+    background-position: center;
+
+}
+.nav3 {
+	background: url(../image/nav-3.jpg) no-repeat;
+	width: 100vw;
+	background-size: cover;
+	opacity: 0.8;
+	height: 100vh;
+	background-position: center;
+
+}
+
+/*导航栏 横向*/
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+	background: white;
+}
+div {
+	margin: 0;
+	padding: 0;
+}
+.index-info {
+	z-index: 100;
+    position: absolute;
+    color: white;
+    bottom: 40vh;
+    left: 55vw;
+}
+.index-info-main {
+	font-weight: bolder;
+	font-size: 38px;
+	box-sizing: content-box;
+    border-right: .1em solid;
+    width: 14ch;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: type 3s steps(14, end), /* # of steps = # of chars */
+	           blink-caret .5s step-end infinite alternate
+}
+.index-info-vice {
+	font-size: 30px;
+	width: 35ch;
+	white-space: nowrap;
+	overflow: hidden;
+	border-right: .1em solid;
+	animation: type 3s steps(30, end), /* # of steps = # of chars */
+	           blink-caret .5s step-end infinite alternate
+}
+@keyframes type{
+    from { width: 0;}
+}
+/* 横向第二屏*/
+.about {
+	left: 50%;
+	top: 50%;
+	text-align: center;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+.about-title {
+	font-size: 55px;
+	color:white;
+	font-style: italic;
+}
+.about-info {
+	font-size: 30px;
+	color: rgba(252, 252, 252, 0.78);
+}
+.index-info3-main {
+	position: relative;
+    left: 17vw;
+    top: 14vh;
+}
+.info3-main {
+	font-family: yahz;
+	color: white;
+	font-size: 35px;
+	font-weight: bolder;
+}
+.info3-vice {
+	font-family: yahz;
+	font-size: 25px;
+	color: black;
+	font-style: italic;
+	position: relative;
+	left: 3vw;
+}

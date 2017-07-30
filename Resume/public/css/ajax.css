@@ -1,0 +1,73 @@
+.background {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    background: url(../image/bg-todoList.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+.todo {
+	width: 100%;
+	text-align: center;
+	position: relative;
+	top: 20px;
+}
+.Text {
+	width: 80%;
+	margin: 0 auto;
+
+}
+#id-input-task {
+    background: transparent;
+    border: 1px solid white;
+    width: 280px;
+    height: 25px;
+    background-color: #D9D9D9;
+}
+
+#id-button-add {
+      width: 50px;
+      height: 30px;
+      border: 1px solid white;
+      border-radius: 15%;
+}
+.todo-title {
+	color: #EE7942;
+	font-family: cursive;
+	font-size: 40px;
+	position: relative;
+	top: -16px;
+}
+.todo-cell {
+	width: 40%;
+	/*background: white;*/
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	margin: 15px auto;
+	height: 30px;
+	text-align: left;
+	position: relative;
+	/*border-top: solid 1px white;*/
+	/*border-bottom: solid 1px white;*/
+	padding: 3px 0;
+
+}
+.todo-complete {
+	width: 50px;
+	height: 30px;
+}
+.todo-task{
+	position: absolute;
+	left: 80px;
+	color: white;
+    width: 400px;
+    height: 30px;
+
+}
+
+.todo-done {
+    color: red;
+    text-decoration: line-through;
+}

@@ -1,0 +1,47 @@
+.photos {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.album-background {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    background: url(../image/bg-album.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/* 轮播图部分 */
+.slider-img {
+    display: none;
+}
+.slider-active {
+    display: block;
+}
+.slider {
+    position: relative;
+    /* top: -41%; */
+    width: 50%;
+    margin: 0 auto;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    border: 5px solid white;
+}
+.slider img {
+    width: 100%;
+}
+.slide-controller {
+    position: relative;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+#id-button-prev1,#id-button-next1 {
+    flex:1;
+    width: 10%;
+}
